@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0l;
+  font-family: "Gilroy";
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100;
+}
+
+/* Remove arrow and spinners -link w3schools */

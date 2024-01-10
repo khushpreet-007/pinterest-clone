@@ -1,0 +1,19 @@
+<% include G:/Project/Pinterest/pin/views/partials/header.ejs %>
+
+
+    <div class="w-full min-h-screen bg-zinc-800 px-10 py-8">
+        <div class="cards flex flex-wrap gap-10">
+            <%=user.posts.forEach(function(elem)){ %>
+                <div class="w-32">
+
+                    <div class="card w-32 h-40 bg-sky-200 rounded-lg">
+                        <img src="/images/uploads/<%=elem.image %>" alt="">
+                    </div>
+                    <h4 class="mt-5 text-sm">
+                        <%= elem.title%>
+                    </h4>
+                </div>
+                <% } %>
+        </div>
+    </div>
+    <% include G:/Project/Pinterest/pin/views/partials/footer.ejs %>
