@@ -4,10 +4,7 @@ const localStrategy = require('passport-local');
 const userModel = require('G:/Project/Pinterest/pin/routes/users');
 const postModel = require('G:/Project/Pinterest/pin/routes/posts');
 
-// const upload = require('G:/Project/Pinterest/pin/routes/multer');
 
-// <% include G:/Project/Pinterest/pin/routes/users.js  %>
-// <% include G:/Project/Pinterest/pin/routes/multer  %>
 
 const passport = require('passport');
 const upload = require('./multer');
@@ -30,12 +27,23 @@ router.get('/profile', isLoggedIn, async function (req, res, next) {
 });
 
 
+// router.get('/feed', isLoggedIn, async function (req, res, next) {
+//   const user = await userModel.findOne({ username: req.session.passport.user })
+//   const posts = postModel.find()
+//   .populate("user")
+//   res.render('feed', {user, posts, nav:true});
+// });
+
 
 router.get('/feed', isLoggedIn, async function (req, res, next) {
-  const user = await userModel.findOne({ username: req.session.passport.user })
-  const posts = postModel.find()
-  .populate("user")
-  res.render('feed', {user, posts,nav:true});
+  try {
+    const user = await userModel.findOne({ username: req.session.passport.user });
+    const posts = await postModel.find().populate("user"); // Add .populate("user") if user is a reference in the post model
+    res.render('feed', { user, posts, nav: true });
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
 });
 
 router.get('/show/posts', isLoggedIn, async function (req, res, next) {
@@ -107,11 +115,16 @@ router.post('/login', passport.authenticate("local", {
 }), function (req, res, next) {
 });
 
-router.post('/logout', function (req, res, next) {
-  req.logout(function (err) {
-    if (err) { return next(err); }
-    res.redirect('/');
-  });
+// router.post('/logout', function (req, res, next) {
+//   req.logout(function (err) {
+//     if (err) { return next(err); }
+//     res.redirect('/');
+//   });
+// });
+
+router.get('/logout', isLoggedIn, function (req, res, next) {
+  // req.logout(); // Remove the callback function
+  res.redirect('/');
 });
 
 

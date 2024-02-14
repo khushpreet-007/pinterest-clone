@@ -8,18 +8,20 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
-  <style rel="stylesheet" href="G:/Project/Pinterest/pin/public/stylesheets/style.css">
+  <style rel="stylesheet" href="..public/stylesheets/style.css">
   </style>
 </head>
 
 <body>
   <% if(nav===true){ %>
-    <div class="w-full px-10 py-3 flex justify-between bg-zinc-500">
-      <h2>Pinterest </h2>
-      <div class="flex gap-10">
-        <a href="/">Profile</a>
-        <a href="#">feed</a>
-        <a href="/logout" class="px-3 py-2 bg-red-700 text-white rounded-lg">Logout</a>
+    <div class="w-full px-6 py-3 flex items-center justify-between bg-indigo-600 text-white">
+      <h2 class="text-lg font-semibold">Social Media App</h2>
+      <div class="flex gap-6">
+
+        <a href="/profile">Profile</a>
+        <a href="/feed">feed</a>
+        <!-- <a href="/feed">feed</a> -->
+        <a href="/logout" class="px-3 py-2 bg-red-700 text-white rounded-lg text-sm">Logout</a>
       </div>
     </div>
- <% }%>
+    <% }%>
