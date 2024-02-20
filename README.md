@@ -16,6 +16,7 @@ __Make use of AI to generate custom title and description__
 ![image](https://github.com/khushpreet-007/pinterest-clone/assets/75271300/8c423a0d-b5ac-4152-b0ce-261674239ec4)
 
 __Resulted Post of kitten using AI__
+
 ![image](https://github.com/khushpreet-007/pinterest-clone/assets/75271300/5dd5f2a3-3b15-400f-a1a6-d8e0d1a044ce)
 
 __Posts Posted by user__
